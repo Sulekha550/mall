@@ -1,0 +1,1999 @@
+/* ==========================================================================
+   CITY MALL HOMEPAGE — LUXURY MALL ENTRANCE, 3D ARCHITECTURE & MOTION SYSTEM
+   Easing: cubic-bezier(0.22, 1, 0.36, 1) (Luxury Quintic Deceleration)
+   Optimized for 60 FPS GPU-composited performance.
+   ========================================================================== */
+
+:root {
+  --hp-ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   0. PRELOADER BACKGROUND LIGHT REFLECTION & PRE-REVEAL HOLD
+   ========================================================================== */
+
+@keyframes hpPreloaderSweep {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.7;
+  }
+
+  80% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateX(160%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.hp-preloader-light-sweep {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hp-preloader-light-sweep::after {
+  content: '';
+  position: absolute;
+  top: -25%;
+  left: 0;
+  width: 45%;
+  height: 150%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.22) 40%,
+      rgba(254, 240, 138, 0.28) 50%,
+      rgba(255, 255, 255, 0.18) 65%,
+      transparent 100%);
+  animation: hpPreloaderSweep 3.2s var(--hp-ease-luxury) infinite;
+  will-change: transform, opacity;
+}
+
+/* Hold navbar & homepage hero elements hidden cleanly while 1->100 loader runs */
+.prem-navbar.hp-navbar-waiting {
+  opacity: 0 !important;
+  transform: translateY(-48px) !important;
+  pointer-events: none !important;
+}
+
+.hp-entrance-waiting .hp-hero-bg-layer {
+  opacity: 0 !important;
+  clip-path: inset(0 0 100% 0) !important;
+}
+
+.hp-entrance-waiting .hp-hero-bg-layer *,
+.hp-entrance-waiting .hp-hero-deco-layer,
+.hp-entrance-waiting .hp-hero-deco-layer * {
+  opacity: 0 !important;
+  animation-play-state: paused !important;
+}
+
+.hp-entrance-waiting .hp-hero-badge,
+.hp-entrance-waiting .hp-hero-heading-group,
+.hp-entrance-waiting .hp-hero-subtitle,
+.hp-entrance-waiting .hp-hero-desc,
+.hp-entrance-waiting .hp-hero-pills {
+  opacity: 0 !important;
+  transform: translateY(-34px) !important;
+}
+
+.hp-entrance-waiting .hp-hero-buttons {
+  opacity: 0 !important;
+  transform: translateY(24px) !important;
+}
+
+.hp-entrance-waiting .hp-hero-main-image,
+.hp-entrance-waiting .hp-hero-vignette-1,
+.hp-entrance-waiting .hp-hero-vignette-2 {
+  opacity: 0 !important;
+  clip-path: inset(0 0 100% 0) !important;
+}
+
+.hp-entrance-waiting .hp-hero-main-scale,
+.hp-entrance-waiting .hp-hero-sec-scale {
+  transform: scale(1.06) !important;
+}
+
+.hp-entrance-waiting .hp-hero-deco-layer {
+  opacity: 0 !important;
+}
+
+/* ==========================================================================
+   1. CLEARLY VISIBLE TOP-TO-BOTTOM ENTRANCE KEYFRAMES
+   ========================================================================== */
+
+@keyframes hpSoftFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hpHeroBgMaskReveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0% 0);
+  }
+}
+
+@keyframes hpClipMaskReveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-14px);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0% 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpImageScaleSettle {
+  0% {
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes hpButtonsUpEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpNavbarSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-48px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpHeroCanvasReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-32px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpHeadingEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-34px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpSubheadingEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-28px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpParagraphEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpBadgeEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpButtonEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpImageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-54px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpHudBottomSettle {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hpCardPanelEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   2. POST-100 HERO ENTRANCE SEQUENCE (0ms – 1500ms COORDINATED TIMELINE)
+   0–300ms: Hero background reveal | 300–700ms: Heading letter groups
+   500–900ms: Description | 700–1000ms: CTA buttons (upward)
+   500–1300ms: Main image clip + 1.06->1 scale
+   1000–1500ms: Secondary images & floating decorative layers
+   ========================================================================== */
+
+.hp-entrance-active.hp-anim-bg,
+.hp-entrance-active .hp-anim-bg {
+  animation: hpSoftFadeIn 300ms var(--hp-ease-luxury) 0ms both;
+}
+
+.hp-entrance-active .hp-hero-bg-layer {
+  animation: hpHeroBgMaskReveal 300ms var(--hp-ease-luxury) 0ms both;
+}
+
+/* Navbar enters smoothly at reveal start */
+.hp-entrance-active.prem-navbar,
+.prem-navbar.hp-entrance-navbar {
+  animation: hpNavbarSlideDown 550ms var(--hp-ease-luxury) 60ms both !important;
+}
+
+.hp-navbar-brand-enter {
+  animation: hpBadgeEnter 500ms var(--hp-ease-luxury) 120ms both !important;
+}
+
+.hp-navbar-item-enter {
+  animation: hpBadgeEnter 480ms var(--hp-ease-luxury) var(--hp-nav-delay, 180ms) both !important;
+}
+
+.hp-navbar-right-enter {
+  animation: hpBadgeEnter 480ms var(--hp-ease-luxury) 280ms both !important;
+}
+
+/* Top Pill Badge: 200–520ms */
+.hp-entrance-active .hp-hero-badge {
+  animation: hpBadgeEnter 320ms var(--hp-ease-luxury) 200ms both;
+}
+
+/* Main Heading Letter Groups (CITY / MALL): 300–700ms */
+.hp-entrance-active .hp-hero-heading-group {
+  animation: hpHeadingEnter 360ms var(--hp-ease-luxury) var(--hg-delay, 300ms) both;
+}
+
+/* Subtitle: 440–780ms */
+.hp-entrance-active .hp-hero-subtitle {
+  animation: hpSubheadingEnter 340ms var(--hp-ease-luxury) 440ms both;
+}
+
+/* Description: 500–900ms */
+.hp-entrance-active .hp-hero-desc {
+  animation: hpParagraphEnter 400ms var(--hp-ease-luxury) 500ms both;
+}
+
+/* Highlight Pills: 600–940ms */
+.hp-entrance-active .hp-hero-pills {
+  animation: hpBadgeEnter 340ms var(--hp-ease-luxury) 600ms both;
+}
+
+/* CTA Buttons (Upward Entry): 700–1000ms */
+.hp-entrance-active .hp-hero-buttons {
+  animation: hpButtonsUpEnter 300ms var(--hp-ease-luxury) 700ms both;
+}
+
+/* Main Hero Image Clipping Mask & 1.06 -> 1 Scale: 500–1300ms */
+.hp-entrance-active .hp-hero-main-image {
+  animation: hpClipMaskReveal 800ms var(--hp-ease-luxury) 500ms both;
+}
+
+.hp-entrance-active .hp-hero-main-scale {
+  animation: hpImageScaleSettle 800ms var(--hp-ease-luxury) 500ms both;
+  will-change: transform;
+}
+
+/* Secondary Images Sequential Clip Reveal & Architectural Decoratives: 1000–1500ms */
+.hp-entrance-active .hp-hero-vignette-1 {
+  animation: hpClipMaskReveal 380ms var(--hp-ease-luxury) 1000ms both;
+}
+
+.hp-entrance-active .hp-hero-vignette-1 .hp-hero-sec-scale {
+  animation: hpImageScaleSettle 380ms var(--hp-ease-luxury) 1000ms both;
+}
+
+.hp-entrance-active .hp-hero-vignette-2 {
+  animation: hpClipMaskReveal 380ms var(--hp-ease-luxury) 1120ms both;
+}
+
+.hp-entrance-active .hp-hero-vignette-2 .hp-hero-sec-scale {
+  animation: hpImageScaleSettle 380ms var(--hp-ease-luxury) 1120ms both;
+}
+
+.hp-entrance-active .hp-hero-deco-layer {
+  animation: hpSoftFadeIn 500ms var(--hp-ease-luxury) 1000ms both;
+}
+
+/* 3D Spatial Tour mode entrance support */
+.hp-entrance-active .hp-anim-hero-canvas {
+  animation: hpHeroCanvasReveal 1100ms var(--hp-ease-luxury) 200ms both;
+}
+
+.hp-entrance-active .hp-anim-card-panel {
+  animation: hpCardPanelEnter 850ms var(--hp-ease-luxury) 280ms both;
+}
+
+.hp-entrance-active .hp-anim-card-badge {
+  animation: hpBadgeEnter 700ms var(--hp-ease-luxury) 340ms both;
+}
+
+.hp-entrance-active .hp-anim-title {
+  animation: hpHeadingEnter 900ms var(--hp-ease-luxury) 460ms both;
+}
+
+.hp-entrance-active .hp-anim-subtitle {
+  animation: hpSubheadingEnter 800ms var(--hp-ease-luxury) 600ms both;
+}
+
+.hp-entrance-active .hp-anim-desc {
+  animation: hpParagraphEnter 800ms var(--hp-ease-luxury) 720ms both;
+}
+
+.hp-entrance-active .hp-anim-features {
+  animation: hpBadgeEnter 700ms var(--hp-ease-luxury) 840ms both;
+}
+
+.hp-entrance-active .hp-anim-btn-primary {
+  animation: hpButtonEnter 750ms var(--hp-ease-luxury) 960ms both;
+}
+
+.hp-entrance-active .hp-anim-btn-secondary {
+  animation: hpButtonEnter 750ms var(--hp-ease-luxury) 1080ms both;
+}
+
+.hp-entrance-active .hp-anim-hud {
+  animation: hpHudBottomSettle 800ms var(--hp-ease-luxury) 880ms both;
+}
+
+/* ==========================================================================
+   3. ASYMMETRICAL ARCHITECTURAL HERO IMAGE COMPOSITION
+   ========================================================================== */
+
+.hp-asym-gallery {
+  position: relative;
+  width: 100%;
+  min-height: 530px;
+  perspective: 1300px;
+}
+
+.hp-asym-main {
+  width: 86%;
+  margin-left: auto;
+  position: relative;
+  z-index: 4;
+}
+
+.hp-asym-boutique {
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 47%;
+  z-index: 12;
+  transform: translateY(calc(var(--hero-scroll-y, 0) * -0.06px));
+}
+
+.hp-asym-dining {
+  position: absolute;
+  right: 3%;
+  bottom: 0;
+  width: 38%;
+  z-index: 14;
+  transform: translateY(calc(var(--hero-scroll-y, 0) * -0.1px));
+}
+
+@media (max-width: 1080px) {
+  .hp-asym-gallery {
+    min-height: 490px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hp-asym-gallery {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hp-asym-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .hp-asym-boutique,
+  .hp-asym-dining {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   4. HERO 3D GLASS DISPLAY, FLOATING LAYERS & CURSOR PARALLAX
+   ========================================================================== */
+
+@keyframes hpHeroSlowFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  50% {
+    transform: translate3d(0px, -6.5px, 0px);
+  }
+}
+
+@keyframes hpHeroImgDrift {
+
+  0%,
+  100% {
+    transform: scale(1) translate3d(0%, 0%, 0);
+  }
+
+  50% {
+    transform: scale(1.035) translate3d(-0.8%, -0.5%, 0);
+  }
+}
+
+@keyframes hpThumbWave {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  50% {
+    transform: translate3d(0px, -6px, 0px);
+  }
+}
+
+@keyframes hpDecoChampagneFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translate3d(4px, -7px, 0px) scale(1.04);
+    opacity: 0.72;
+  }
+}
+
+.hp-hero-deco-float {
+  animation: hpDecoChampagneFloat 7.5s ease-in-out var(--deco-delay, 0s) infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+@keyframes hpTextGentleFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  50% {
+    transform: translate3d(0px, -5px, 0px);
+  }
+}
+
+@keyframes hpOrbDriftA {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+
+  50% {
+    transform: translate3d(38px, 26px, 0px) scale(1.08);
+  }
+}
+
+@keyframes hpOrbDriftB {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-42px, -28px, 0px) scale(1.09);
+  }
+}
+
+@keyframes hpScrollCueFloat {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+}
+
+.hp-orb-drift-a {
+  animation: hpOrbDriftA 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hp-orb-drift-b {
+  animation: hpOrbDriftB 17s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hp-scroll-cue-float {
+  animation: hpScrollCueFloat 2.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hp-hero-float-stage {
+  animation: hpHeroSlowFloat 5.6s ease-in-out infinite;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.hp-hero-img-drift {
+  animation: hpHeroImgDrift 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hp-thumb-float {
+  animation: hpThumbWave 4.8s ease-in-out var(--thumb-float-delay, 0s) infinite;
+  will-change: transform;
+}
+
+.hp-live-badge-float {
+  animation: hpTextGentleFloat 4.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hp-live-text-float {
+  animation: hpTextGentleFloat 5.8s ease-in-out var(--text-float-delay, 0.4s) infinite;
+  will-change: transform;
+}
+
+.hp-live-pill-float {
+  animation: hpTextGentleFloat 4.9s ease-in-out var(--pill-float-delay, 0s) infinite;
+  will-change: transform;
+  transition: transform 0.35s var(--hp-ease-luxury), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.hp-live-pill-float:hover {
+  transform: translateY(-4px) scale(1.03) !important;
+  border-color: rgba(244, 63, 94, 0.45) !important;
+  box-shadow: 0 10px 22px rgba(244, 63, 94, 0.16) !important;
+}
+
+/* Interactive 3D Hero Mouse Depth Parallax & Crisp Layer Separation */
+.hp-parallax-left {
+  position: relative;
+  z-index: 6;
+  transform: translate3d(calc(var(--hx, 0) * -10px), calc(var(--hy, 0) * -7px), 0);
+  transition: transform 0.35s var(--hp-ease-luxury);
+  will-change: transform;
+}
+
+/* Lightweight Localized Edge Contrast Behind Hero Copy (Zero Video Blur) */
+.hp-hero-text-shield::before {
+  content: '';
+  position: absolute;
+  inset: -18px -24px;
+  border-radius: 30px;
+  background: radial-gradient(ellipse at 44% 50%,
+      rgba(255, 250, 245, 0.56) 0%,
+      rgba(255, 245, 247, 0.24) 50%,
+      rgba(255, 250, 245, 0) 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hp-hero-text-shield-dark::before {
+  background: radial-gradient(ellipse at 44% 50%,
+      rgba(20, 12, 20, 0.58) 0%,
+      rgba(20, 12, 20, 0.26) 52%,
+      rgba(20, 12, 20, 0) 80%);
+}
+
+/* Localized Editorial Copy Readability Halo for Stacked Floors 02-08 (Zero Video Blur) */
+.hp-floor-copy-cushion {
+  position: relative;
+  z-index: 2;
+}
+
+.hp-floor-copy-cushion::before {
+  content: '';
+  position: absolute;
+  inset: -20px -26px;
+  border-radius: 30px;
+  background: radial-gradient(ellipse at 45% 50%,
+      rgba(255, 250, 245, 0.56) 0%,
+      rgba(255, 245, 247, 0.24) 50%,
+      rgba(255, 250, 245, 0) 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hp-floor-copy-cushion-dark::before {
+  background: radial-gradient(ellipse at 45% 50%,
+      rgba(16, 10, 15, 0.58) 0%,
+      rgba(16, 10, 15, 0.26) 52%,
+      rgba(16, 10, 15, 0) 80%);
+}
+
+.hp-parallax-right {
+  position: relative;
+  z-index: 4;
+  transform:
+    perspective(1300px) translate3d(calc(var(--hx, 0) * 16px), calc(var(--hy, 0) * 11px), 0) rotateY(calc(var(--hx, 0) * 2.8deg)) rotateX(calc(var(--hy, 0) * -2deg));
+  transition: transform 0.38s var(--hp-ease-luxury);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Layered architectural glass frame styling */
+.hp-hero-glass-frame {
+  position: relative;
+  border-radius: 26px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 28px 65px -12px rgba(28, 19, 23, 0.18),
+    0 12px 32px -6px rgba(244, 63, 94, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.hp-hero-glass-rim {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 0 28px rgba(254, 240, 138, 0.14);
+  pointer-events: none;
+  z-index: 15;
+}
+
+@keyframes hpGlassReflectionSweep {
+  0% {
+    transform: translateX(-140%) skewX(-22deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.7;
+  }
+
+  45% {
+    transform: translateX(180%) skewX(-22deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(180%) skewX(-22deg);
+    opacity: 0;
+  }
+}
+
+.hp-hero-light-sweep {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+  z-index: 14;
+}
+
+.hp-hero-light-sweep::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 55%;
+  height: 140%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.12) 35%,
+      rgba(255, 255, 255, 0.34) 50%,
+      rgba(254, 240, 138, 0.18) 65%,
+      transparent 100%);
+  animation: hpGlassReflectionSweep 6.2s var(--hp-ease-luxury) 1s infinite;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   5. LAYERED BOUTIQUE & DINING OVERLAP CARDS (Lifting, 1.03x Zoom, Border Light)
+   ========================================================================== */
+
+.hp-thumb-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid rgba(255, 252, 248, 0.96);
+  box-shadow:
+    0 20px 44px rgba(28, 19, 23, 0.2),
+    0 8px 18px rgba(244, 63, 94, 0.12);
+  transition:
+    transform 0.45s var(--hp-ease-luxury),
+    box-shadow 0.45s var(--hp-ease-luxury),
+    border-color 0.4s ease;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.hp-thumb-card img {
+  transition: transform 0.65s var(--hp-ease-luxury), filter 0.5s ease;
+  will-change: transform;
+}
+
+.hp-thumb-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(254, 240, 138, 0.95);
+  box-shadow:
+    0 26px 48px rgba(244, 63, 94, 0.2),
+    0 10px 24px rgba(250, 204, 21, 0.25);
+}
+
+.hp-thumb-card:hover img {
+  transform: scale(1.035);
+}
+
+/* ==========================================================================
+   6. CITY MALL HEADING — ANIMATED GRADIENT SHIMMER
+   ========================================================================== */
+
+@keyframes hpHeadingShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hp-heading-shimmer {
+  background: linear-gradient(115deg,
+      #e11d48 0%,
+      #fb7185 22%,
+      #f97316 42%,
+      #fbbf24 52%,
+      #f59e0b 65%,
+      #fb7185 84%,
+      #e11d48 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hpHeadingShimmer 8.5s ease-in-out infinite;
+}
+
+.hp-hero-heading-group {
+  display: inline-block;
+  position: relative;
+}
+
+@keyframes hpHeadingHighlightSweep {
+
+  0%,
+  100% {
+    transform: translateX(-18%) scaleX(0.75);
+    opacity: 0.28;
+  }
+
+  50% {
+    transform: translateX(35%) scaleX(1.08);
+    opacity: 0.65;
+  }
+}
+
+.hp-heading-highlight-line {
+  width: 128px;
+  height: 2px;
+  margin-top: 8px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, transparent 0%, rgba(251, 113, 133, 0.7) 30%, rgba(250, 204, 21, 0.95) 60%, transparent 100%);
+  animation: hpHeadingHighlightSweep 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   7. HERO 4-LAYER 3D ATMOSPHERIC BACKGROUND MOTION
+   Begins strictly after 1-100 loader completes; 60 FPS GPU-composited.
+   ========================================================================== */
+
+/* Depth Layer Wrappers with Smooth Cursor Parallax */
+.hp-hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  perspective: 1200px;
+}
+
+.hp-bg-layer-ambient {
+  position: absolute;
+  inset: -6%;
+  transform: translate3d(calc(var(--hx, 0) * -5px), calc(var(--hy, 0) * -4px), 0);
+  transition: transform 0.65s var(--hp-ease-luxury);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.hp-bg-layer-arch {
+  position: absolute;
+  inset: 0;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  transform: translate3d(calc(var(--hx, 0) * 9px), calc(var(--hy, 0) * 6px), 0);
+  transition: transform 0.55s var(--hp-ease-luxury);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.hp-bg-layer-rays {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(calc(var(--hx, 0) * 13px), calc(var(--hy, 0) * 8px), 0);
+  transition: transform 0.5s var(--hp-ease-luxury);
+  will-change: transform;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hp-bg-layer-particles {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(calc(var(--hx, 0) * 16px), calc(var(--hy, 0) * 10px), 0);
+  transition: transform 0.45s var(--hp-ease-luxury);
+  will-change: transform;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Layer 1: Living Ambient Gradients (12–20s staggered trajectories) */
+@keyframes hpOrbDriftC {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate3d(44px, -26px, 0px) scale(1.07);
+  }
+
+  66% {
+    transform: translate3d(-28px, 24px, 0px) scale(0.97);
+  }
+}
+
+@keyframes hpOrbDriftD {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: translate3d(-46px, 32px, 0px) scale(1.09);
+    opacity: 0.96;
+  }
+}
+
+.hp-orb-drift-c {
+  animation: hpOrbDriftC 19s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hp-orb-drift-d {
+  animation: hpOrbDriftD 15s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Layer 2: Translucent 3D Architectural Glass Panels, Ribbons & Spheres (8–14s) */
+@keyframes hpGlassPanelFloatA {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateX(8deg) rotateY(-12deg) rotateZ(-4deg);
+  }
+
+  50% {
+    transform: translate3d(14px, -18px, 18px) rotateX(12deg) rotateY(-6deg) rotateZ(-1deg);
+  }
+}
+
+@keyframes hpGlassPanelFloatB {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateX(-6deg) rotateY(10deg) rotateZ(6deg);
+  }
+
+  50% {
+    transform: translate3d(-12px, 16px, 14px) rotateX(-2deg) rotateY(15deg) rotateZ(9deg);
+  }
+}
+
+@keyframes hpRibbonFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translate3d(18px, -12px, 0px) rotate(1.8deg) scale(1.025);
+  }
+}
+
+@keyframes hpSphereFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-10px, -16px, 0px) scale(1.05);
+  }
+}
+
+.hp-arch-glass-panel-a {
+  animation: hpGlassPanelFloatA 11.5s ease-in-out infinite;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.hp-arch-glass-panel-b {
+  animation: hpGlassPanelFloatB 13.5s ease-in-out infinite;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.hp-arch-ribbon-a {
+  animation: hpRibbonFloat 10.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hp-arch-ribbon-b {
+  animation: hpRibbonFloat 14s ease-in-out reverse infinite;
+  will-change: transform;
+}
+
+.hp-arch-sphere-a {
+  animation: hpSphereFloat 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hp-arch-sphere-b {
+  animation: hpSphereFloat 12.5s ease-in-out 1.4s infinite;
+  will-change: transform;
+}
+
+/* Layer 3: Cinematic Moving Sunlight Rays & Champagne Reflection Sweeps (10–16s) */
+@keyframes hpSunbeamGlideA {
+
+  0%,
+  100% {
+    transform: translate3d(-8%, 0%, 0) rotate(24deg) scaleY(1.05);
+    opacity: 0.22;
+  }
+
+  50% {
+    transform: translate3d(18%, 2%, 0) rotate(26deg) scaleY(1.08);
+    opacity: 0.38;
+  }
+}
+
+@keyframes hpSunbeamGlideB {
+
+  0%,
+  100% {
+    transform: translate3d(12%, -2%, 0) rotate(21deg) scaleY(1.04);
+    opacity: 0.16;
+  }
+
+  50% {
+    transform: translate3d(-14%, 3%, 0) rotate(19deg) scaleY(1.07);
+    opacity: 0.32;
+  }
+}
+
+@keyframes hpBgChampagneSweep {
+  0% {
+    transform: translate3d(-45%, 0, 0) skewX(-22deg);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.28;
+  }
+
+  75% {
+    opacity: 0.22;
+  }
+
+  100% {
+    transform: translate3d(145%, 0, 0) skewX(-22deg);
+    opacity: 0;
+  }
+}
+
+.hp-sunbeam-1 {
+  animation: hpSunbeamGlideA 13s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.hp-sunbeam-2 {
+  animation: hpSunbeamGlideB 16s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.hp-bg-champagne-sweep {
+  animation: hpBgChampagneSweep 12s var(--hp-ease-luxury) infinite;
+  will-change: transform, opacity;
+}
+
+/* Layer 4: Pearl & Champagne Particle Atmosphere (8–18s) */
+@keyframes hpParticleFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+    opacity: var(--p-opacity-min, 0.18);
+  }
+
+  50% {
+    transform: translate3d(10px, -28px, 0px);
+    opacity: var(--p-opacity-max, 0.48);
+  }
+}
+
+.hp-ambient-particles-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hp-ambient-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(254, 240, 138, 0.72) 48%,
+      transparent 100%);
+  box-shadow: 0 0 10px rgba(254, 240, 138, 0.38);
+  animation: hpParticleFloat var(--p-duration, 14s) ease-in-out var(--p-delay, 0s) infinite;
+  will-change: transform, opacity;
+}
+
+.hp-ambient-particle-pearl {
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(255, 228, 230, 0.65) 52%,
+      transparent 100%);
+  box-shadow: 0 0 9px rgba(255, 255, 255, 0.45);
+}
+
+/* ==========================================================================
+   8. BUTTON HOVER POLISH & PRIMARY CTA GRADIENT SHINE
+   ========================================================================== */
+
+.hp-btn-luxury {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s var(--hp-ease-luxury),
+    box-shadow 0.35s var(--hp-ease-luxury),
+    border-color 0.3s ease,
+    background 0.3s ease !important;
+}
+
+.hp-btn-luxury:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 30px rgba(244, 63, 94, 0.2), 0 6px 16px rgba(250, 204, 21, 0.22) !important;
+}
+
+.hp-btn-shine-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 48%;
+  height: 200%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.55) 50%,
+      transparent 100%);
+  transform: skewX(-24deg);
+  transition: left 0.65s var(--hp-ease-luxury);
+  pointer-events: none;
+}
+
+.hp-btn-shine-hover:hover::after {
+  left: 140%;
+}
+
+@keyframes hpCtaAutoShine {
+  0% {
+    left: -75%;
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  35% {
+    left: 135%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 135%;
+    opacity: 0;
+  }
+}
+
+.hp-cta-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 100%);
+  transform: skewX(-24deg);
+  transition: left 0.65s var(--hp-ease-luxury);
+  animation: hpCtaAutoShine 6s var(--hp-ease-luxury) 2.8s infinite;
+  pointer-events: none;
+}
+
+.hp-cta-shine:hover::after {
+  animation: none;
+  left: 135%;
+}
+
+/* ==========================================================================
+   9. CURATED MALL EXPERIENCES EDITORIAL MOSAIC
+   Varied proportions, asymmetrical layout, zero repetitive grids.
+   ========================================================================== */
+
+.hp-mosaic-row-1 {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.hp-mosaic-row-2 {
+  display: grid;
+  grid-template-columns: 1.05fr 0.9fr 1.05fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.hp-mosaic-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  box-shadow: 0 18px 42px rgba(28, 19, 23, 0.08);
+  cursor: pointer;
+  transition:
+    transform 0.45s var(--hp-ease-luxury),
+    box-shadow 0.45s var(--hp-ease-luxury),
+    border-color 0.35s ease;
+}
+
+.hp-mosaic-card img {
+  transition: transform 0.75s var(--hp-ease-luxury);
+  will-change: transform;
+}
+
+.hp-mosaic-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(244, 63, 94, 0.45);
+  box-shadow: 0 28px 56px rgba(244, 63, 94, 0.14), 0 10px 26px rgba(250, 204, 21, 0.16);
+}
+
+.hp-mosaic-card:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 960px) {
+
+  .hp-mosaic-row-1,
+  .hp-mosaic-row-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   10. SCROLL REVEAL ANIMATIONS (IntersectionObserver)
+   ========================================================================== */
+
+.hp-scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.9s var(--hp-ease-luxury) var(--sr-delay, 0ms),
+    transform 0.9s var(--hp-ease-luxury) var(--sr-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.hp-scroll-reveal.hp-scroll-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hp-scroll-reveal-img {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.95s var(--hp-ease-luxury) var(--sr-delay, 80ms),
+    transform 0.95s var(--hp-ease-luxury) var(--sr-delay, 80ms);
+}
+
+.hp-scroll-revealed .hp-scroll-reveal-img,
+.hp-scroll-reveal-img.hp-scroll-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   11. FULL-SCREEN ROUTE TRANSITION & STACKING SECTION OVERRIDE SYSTEM
+   ========================================================================== */
+
+@keyframes hpRouteReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hp-route-transition {
+  animation: hpRouteReveal 680ms var(--hp-ease-luxury) both;
+}
+
+/* Sticky Full-Screen Section Stacking Wrapper */
+.hp-stack-container {
+  position: relative;
+  width: 100%;
+}
+
+.hp-stack-section {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  will-change: transform;
+}
+
+.hp-stack-section:first-child {
+  box-shadow: none;
+  border-top: none;
+}
+
+/* Subtle 3D depth scaling on the covered section underneath */
+.hp-stack-inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(calc(1 - var(--cover-progress, 0) * 0.038));
+  opacity: calc(1 - min(1, var(--cover-progress, 0) * 1.35));
+  transform-origin: center top;
+  transition: transform 0.08s linear, opacity 0.08s linear;
+  will-change: transform, opacity;
+}
+
+.hp-stack-cover-scrim {
+  display: none;
+}
+
+/* Editorial Split Grid for Stacked Mall Floor Sections */
+.hp-floor-split {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 96px 68px 44px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 52px;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.hp-floor-split.hp-floor-split-reverse {
+  grid-template-columns: 1.05fr 1fr;
+}
+
+@keyframes hpFloorMainFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  50% {
+    transform: translate3d(0px, -9px, 0px);
+  }
+}
+
+@keyframes hpFloorInsetFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  50% {
+    transform: translate3d(0px, -11px, 0px);
+  }
+}
+
+/* Architectural Photo Card with Hover Lift, Zoom & Label Reveal */
+.hp-floor-photo-stage {
+  position: relative;
+  width: 100%;
+  min-height: 460px;
+  perspective: 1200px;
+}
+
+.hp-floor-photo-main {
+  position: relative;
+  width: 88%;
+  height: 410px;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 28px 65px rgba(28, 19, 23, 0.16),
+    0 10px 28px rgba(244, 63, 94, 0.1);
+  cursor: pointer;
+  animation: hpFloorMainFloat 6.2s ease-in-out infinite;
+  transition:
+    transform 0.55s var(--hp-ease-luxury),
+    box-shadow 0.55s var(--hp-ease-luxury);
+}
+
+.hp-floor-photo-main img,
+.hp-floor-photo-inset img,
+.hp-floor-photo-accent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: hpHeroImgDrift 13s ease-in-out infinite;
+  transition: transform 0.75s var(--hp-ease-luxury);
+}
+
+.hp-floor-photo-main:hover {
+  animation-play-state: paused;
+  transform: translateY(-9px) scale(1.012);
+  box-shadow:
+    0 34px 72px rgba(244, 63, 94, 0.18),
+    0 12px 32px rgba(250, 204, 21, 0.22);
+}
+
+.hp-floor-photo-main:hover img {
+  transform: scale(1.055);
+}
+
+.hp-floor-photo-inset {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 46%;
+  height: 195px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #fffaf6;
+  box-shadow:
+    0 22px 46px rgba(28, 19, 23, 0.2),
+    0 8px 20px rgba(212, 175, 55, 0.14);
+  cursor: pointer;
+  z-index: 10;
+  animation: hpFloorInsetFloat 5.2s ease-in-out 0.9s infinite;
+  transition:
+    transform 0.5s var(--hp-ease-luxury),
+    box-shadow 0.5s var(--hp-ease-luxury);
+}
+
+.hp-floor-photo-inset.hp-inset-left {
+  right: auto;
+  left: 0;
+}
+
+.hp-floor-photo-inset:hover {
+  animation-play-state: paused;
+  transform: translateY(-9px) scale(1.02);
+  box-shadow:
+    0 28px 54px rgba(244, 63, 94, 0.22),
+    0 10px 26px rgba(250, 204, 21, 0.25);
+}
+
+.hp-floor-photo-inset:hover img,
+.hp-floor-photo-accent:hover img {
+  transform: scale(1.06);
+}
+
+/* Third Small Rectangular Supporting Accent Card */
+.hp-floor-photo-accent {
+  position: absolute;
+  top: -12px;
+  right: 12px;
+  width: 34%;
+  height: 138px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2.5px solid #fffaf6;
+  box-shadow:
+    0 20px 42px rgba(28, 19, 23, 0.18),
+    0 6px 18px rgba(212, 175, 55, 0.14);
+  cursor: pointer;
+  z-index: 12;
+  animation: hpFloorInsetFloat 5.8s ease-in-out 0.4s infinite;
+  transition:
+    transform 0.5s var(--hp-ease-luxury),
+    box-shadow 0.5s var(--hp-ease-luxury);
+}
+
+.hp-floor-photo-accent:hover {
+  animation-play-state: paused;
+  transform: translateY(-9px) scale(1.025);
+  box-shadow:
+    0 28px 54px rgba(244, 63, 94, 0.22),
+    0 10px 26px rgba(250, 204, 21, 0.25);
+}
+
+/* Distinct Per-Section Asymmetrical Compositions (No Repetitive Layouts) */
+.hp-stage-variant-boutique .hp-floor-photo-main {
+  height: 365px;
+  width: 82%;
+  margin-left: auto;
+}
+
+.hp-stage-variant-boutique .hp-floor-photo-inset {
+  width: 38%;
+  height: 235px;
+  left: 0;
+  right: auto;
+  bottom: 0;
+}
+
+.hp-stage-variant-boutique .hp-floor-photo-accent {
+  top: 22px;
+  left: 24px;
+  right: auto;
+  width: 34%;
+  height: 128px;
+}
+
+.hp-stage-variant-dining .hp-floor-photo-main {
+  width: 92%;
+  height: 345px;
+  margin-right: auto;
+}
+
+.hp-stage-variant-dining .hp-floor-photo-inset {
+  width: 44%;
+  height: 185px;
+  right: 0;
+  bottom: 0;
+}
+
+.hp-stage-variant-dining .hp-floor-photo-accent {
+  top: auto;
+  bottom: 24px;
+  left: 16px;
+  right: auto;
+  width: 36%;
+  height: 145px;
+}
+
+.hp-stage-variant-cinema .hp-floor-photo-main {
+  width: 94%;
+  height: 325px;
+  margin-left: auto;
+}
+
+.hp-stage-variant-cinema .hp-floor-photo-inset {
+  width: 42%;
+  height: 195px;
+  left: 0;
+  right: auto;
+  bottom: 0;
+}
+
+.hp-stage-variant-cinema .hp-floor-photo-accent {
+  top: -16px;
+  right: 22px;
+  width: 38%;
+  height: 142px;
+}
+
+.hp-stage-variant-garden .hp-floor-photo-main {
+  width: 84%;
+  height: 395px;
+  margin-right: auto;
+}
+
+.hp-stage-variant-garden .hp-floor-photo-inset {
+  width: 44%;
+  height: 215px;
+  right: 0;
+  bottom: 12px;
+}
+
+.hp-stage-variant-garden .hp-floor-photo-accent {
+  top: 18px;
+  right: 12px;
+  width: 34%;
+  height: 136px;
+}
+
+.hp-stage-variant-events .hp-floor-photo-main {
+  width: 88%;
+  height: 355px;
+  margin-left: auto;
+}
+
+.hp-stage-variant-events .hp-floor-photo-inset {
+  width: 46%;
+  height: 190px;
+  left: 0;
+  right: auto;
+  bottom: 4px;
+}
+
+.hp-stage-variant-events .hp-floor-photo-accent {
+  top: -10px;
+  left: 36px;
+  right: auto;
+  width: 34%;
+  height: 134px;
+}
+
+.hp-stage-variant-panorama .hp-floor-photo-main {
+  width: 92%;
+  height: 330px;
+  margin-left: auto;
+}
+
+.hp-stage-variant-panorama .hp-floor-photo-inset {
+  width: 44%;
+  height: 185px;
+  left: 0;
+  right: auto;
+  bottom: 0;
+}
+
+.hp-stage-variant-panorama .hp-floor-photo-accent {
+  top: -16px;
+  left: 24px;
+  right: auto;
+  width: 36%;
+  height: 132px;
+}
+
+.hp-floor-hover-label {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 252, 248, 0.92);
+  backdrop-filter: blur(10px);
+  color: #1c1317;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(4px);
+  opacity: 0.92;
+  transition: transform 0.4s var(--hp-ease-luxury), opacity 0.4s ease;
+}
+
+.hp-floor-photo-main:hover .hp-floor-hover-label,
+.hp-floor-photo-inset:hover .hp-floor-hover-label {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Sleek Right-side Floating Floor Navigator Rail */
+.hp-floor-rail {
+  position: fixed;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 7px;
+  border-radius: 9999px;
+  background: rgba(255, 250, 246, 0.86);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 12px 32px rgba(28, 19, 23, 0.1);
+}
+
+.hp-floor-dot-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.hp-floor-dot-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #1c1317;
+  background: rgba(255, 252, 248, 0.94);
+  backdrop-filter: blur(10px);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 6px 18px rgba(28, 19, 23, 0.12);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s var(--hp-ease-luxury);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.hp-floor-dot-btn:hover .hp-floor-dot-label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.hp-floor-dot-pip {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(120, 53, 15, 0.28);
+  transition: all 0.35s var(--hp-ease-luxury);
+}
+
+.hp-floor-dot-btn.active .hp-floor-dot-pip {
+  height: 22px;
+  background: linear-gradient(180deg, #f43f5e 0%, #f59e0b 100%);
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.45);
+}
+
+/* ==========================================================================
+   12. RESPONSIVE HERO & FLOOR SECTIONS
+   ========================================================================== */
+
+.hp-luxury-hero-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 44px;
+  align-items: center;
+}
+
+@media (max-height: 820px) and (min-width: 1081px) {
+  .hp-floor-split,
+  .hp-floor-split.hp-floor-split-reverse {
+    padding: 78px 56px 24px 36px;
+    gap: 36px;
+  }
+
+  .hp-asym-gallery {
+    min-height: 430px;
+  }
+
+  .hp-floor-photo-stage {
+    min-height: 380px;
+  }
+
+  .hp-floor-photo-main {
+    height: 340px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hp-stack-section#section-arrival {
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    overflow: visible;
+  }
+
+  .hp-luxury-hero-grid,
+  .hp-floor-split,
+  .hp-floor-split.hp-floor-split-reverse {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 86px 24px 68px;
+  }
+
+  .hp-hero-text-shield::before {
+    inset: -14px -12px;
+  }
+
+  .hp-floor-photo-stage {
+    min-height: 260px;
+  }
+
+  .hp-floor-photo-main {
+    width: 100%;
+    height: 235px;
+  }
+
+  .hp-floor-photo-inset,
+  .hp-floor-photo-accent {
+    display: none;
+  }
+
+  .hp-floor-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .hp-bg-layer-arch {
+    opacity: 0.55;
+  }
+
+  .hp-arch-glass-panel-a,
+  .hp-arch-glass-panel-b {
+    width: 120px !important;
+    height: 82px !important;
+  }
+
+  .hp-luxury-hero-grid {
+    gap: 18px;
+  }
+
+  .hp-asym-gallery .hp-asym-dining {
+    display: none;
+  }
+
+  .hp-asym-gallery .hp-asym-main img,
+  .hp-asym-gallery .hp-asym-main>div>div>div>div {
+    max-height: 230px;
+  }
+}
+
+/* ==========================================================================
+   13. ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hp-entrance-active *,
+  .hp-entrance-navbar,
+  .hp-navbar-brand-enter,
+  .hp-navbar-item-enter,
+  .hp-navbar-right-enter,
+  .hp-hero-float-stage,
+  .hp-hero-img-drift,
+  .hp-thumb-float,
+  .hp-live-badge-float,
+  .hp-live-text-float,
+  .hp-live-pill-float,
+  .hp-hero-light-sweep::after,
+  .hp-preloader-light-sweep::after,
+  .hp-cta-shine::after,
+  .hp-heading-shimmer,
+  .hp-ambient-particle,
+  .hp-hero-bg-layer,
+  .hp-bg-layer-ambient *,
+  .hp-bg-layer-arch *,
+  .hp-bg-layer-rays *,
+  .hp-bg-layer-particles *,
+  .hp-orb-drift-c,
+  .hp-orb-drift-d,
+  .hp-arch-glass-panel-a,
+  .hp-arch-glass-panel-b,
+  .hp-arch-ribbon-a,
+  .hp-arch-ribbon-b,
+  .hp-arch-sphere-a,
+  .hp-arch-sphere-b,
+  .hp-sunbeam-1,
+  .hp-sunbeam-2,
+  .hp-bg-champagne-sweep,
+  .hp-hero-heading-group,
+  .hp-heading-highlight-line,
+  .hp-hero-main-scale,
+  .hp-hero-sec-scale,
+  .hp-hero-deco-layer,
+  .hp-hero-deco-float,
+  .hp-orb-drift-a,
+  .hp-orb-drift-b,
+  .hp-scroll-cue-float,
+  .hp-floor-photo-main,
+  .hp-floor-photo-main img,
+  .hp-floor-photo-inset,
+  .hp-floor-photo-inset img,
+  .hp-floor-photo-accent,
+  .hp-floor-photo-accent img,
+  .hp-route-transition {
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .hp-bg-layer-ambient,
+  .hp-bg-layer-arch,
+  .hp-bg-layer-rays,
+  .hp-bg-layer-particles,
+  .hp-hero-video-stage,
+  .hp-hero-bg-video {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hp-stack-inner {
+    transform: none !important;
+  }
+
+  .hp-parallax-left,
+  .hp-parallax-right {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .prem-navbar.hp-navbar-waiting,
+  .hp-entrance-waiting *,
+  .hp-entrance-waiting .hp-hero-bg-layer,
+  .hp-entrance-waiting .hp-hero-main-image,
+  .hp-entrance-waiting .hp-hero-vignette-1,
+  .hp-entrance-waiting .hp-hero-vignette-2 {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .hp-scroll-reveal,
+  .hp-scroll-reveal-img {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hp-thumb-card,
+  .hp-thumb-card img,
+  .hp-mosaic-card,
+  .hp-mosaic-card img,
+  .hp-floor-photo-main,
+  .hp-floor-photo-main img,
+  .hp-floor-photo-inset,
+  .hp-floor-photo-inset img,
+  .hp-btn-luxury {
+    transition: none !important;
+  }
+}

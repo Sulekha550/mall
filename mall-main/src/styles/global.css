@@ -1,0 +1,575 @@
+:root {
+  /* Pinkish-Yellowish Master Palette */
+  --color-pink: #f43f5e;
+  --color-pink-vibrant: #fb7185;
+  --color-pink-soft: #ffe4e6;
+  --color-pink-blush: #fff1f2;
+  --color-yellow: #facc15;
+  --color-yellow-warm: #f59e0b;
+  --color-yellow-butter: #fef08a;
+  --color-yellow-light: #fef9c3;
+  --color-gold: #eab308;
+  --color-gold-light: #fef08a;
+  --color-gold-dark: #b45309;
+  --color-obsidian: #0e0a0d;
+  --color-card: rgba(255, 255, 255, 0.94);
+  --color-border: rgba(244, 63, 94, 0.15);
+  --color-border-gold: rgba(234, 179, 8, 0.35);
+  --color-border-pink: rgba(244, 63, 94, 0.35);
+  --font-display: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  background-color: #fff8f8;
+  color: #1e1318;
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Architectural Scrollbar with Pinkish Yellowish Hover */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fff1f2;
+}
+::-webkit-scrollbar-thumb {
+  background: #fbcfe8;
+  border-radius: 3px;
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f43f5e, #facc15);
+}
+
+/* Typography Utilities */
+.font-cinzel {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-grotesk {
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* Pinkish-Yellowish Gradients */
+.text-gold-gradient,
+.text-pink-yellow-gradient {
+  background: linear-gradient(135deg, #f43f5e 0%, #fb7185 35%, #f59e0b 70%, #facc15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-silver-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #ffe4e6 50%, #fef08a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glass Panels with Pinkish-Yellow Accents */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 63, 94, 0.16);
+  box-shadow: 0 25px 60px rgba(244, 63, 94, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+}
+
+.glass-panel-gold {
+  background: rgba(24, 14, 18, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(251, 113, 133, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(250, 204, 21, 0.3);
+  border-radius: 16px;
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-pill:hover {
+  background: linear-gradient(135deg, rgba(255, 241, 242, 0.95), rgba(254, 249, 195, 0.95));
+  border-color: rgba(234, 179, 8, 0.45);
+  transform: translateY(-1px);
+}
+
+/* Buttons with Pinkish Yellowish Aesthetics */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #f43f5e 0%, #fb7185 30%, #f59e0b 70%, #facc15 100%);
+  color: #0d090d;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.8rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(244, 63, 94, 0.35);
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #fb7185 0%, #f59e0b 50%, #fde047 100%);
+  box-shadow: 0 12px 35px rgba(245, 158, 11, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: #1e1318;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.8rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+.btn-secondary:hover {
+  background: #fff1f2;
+  border-color: rgba(234, 179, 8, 0.5);
+  color: #e11d48;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 2s ease-in-out infinite;
+}
+
+/* Layout Utilities */
+.mall-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Cinematic Overlay Responsiveness */
+.cinematic-overlay-container {
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .cinematic-overlay-container {
+    padding: 16px 16px 24px !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+  .cinematic-overlay-container .cinematic-info-panel,
+  .cinematic-overlay-container .glass-panel,
+  .cinematic-overlay-container .glass-panel-gold {
+    max-width: 100% !important;
+    padding: 22px 20px !important;
+    max-height: 52vh !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* ==========================================================================
+   3D PERSPECTIVE & SPATIAL DEPTH SYSTEM
+   Enables true 3D multi-layer parallax, depth floating, and lighting sheen
+   ========================================================================== */
+
+.three-d-stage {
+  perspective: 1200px;
+  -webkit-perspective: 1200px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.three-d-preserve {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.three-d-layer-base {
+  transform: translateZ(0);
+}
+
+.three-d-layer-float-1 {
+  transform: translateZ(25px);
+  will-change: transform;
+}
+
+.three-d-layer-float-2 {
+  transform: translateZ(45px);
+  will-change: transform;
+}
+
+.three-d-layer-float-3 {
+  transform: translateZ(65px);
+  will-change: transform;
+}
+
+.three-d-card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.three-d-card-sheen::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.25) 48%,
+    rgba(254, 240, 138, 0.35) 52%,
+    transparent 60%
+  );
+  transform: rotate(25deg) translateY(-100%);
+  transition: transform 0.75s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.three-d-card-sheen:hover::after {
+  transform: rotate(25deg) translateY(100%);
+}
+
+/* ==========================================================================
+   3D ILLUMINATION & AMBIENT LIGHTING SYSTEM
+   Gives all images multi-dimensional depth, radiant ambient backlights,
+   specular sheen beams, and 3D rim illumination
+   ========================================================================== */
+
+.three-d-image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.08), 
+              0 0 25px rgba(244, 63, 94, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.three-d-image-frame:hover {
+  transform: perspective(1000px) translateY(-8px) rotateX(3deg) rotateY(-3deg) scale3d(1.025, 1.025, 1.025);
+  box-shadow: 0 28px 70px rgba(244, 63, 94, 0.22), 
+              0 0 45px rgba(250, 204, 21, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-color: rgba(250, 204, 21, 0.6) !important;
+}
+
+.three-d-image-frame img,
+.ed-card img,
+.ed-shopping-card img,
+.ed-dining-card img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
+}
+
+.three-d-image-frame:hover img,
+.ed-card:hover img,
+.ed-shopping-card:hover img {
+  transform: scale(1.04) translateZ(8px);
+}
+
+/* 3D Specular Light Sweep Beam */
+.three-d-light-beam {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+  z-index: 12;
+}
+
+.three-d-light-beam::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    65deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.35) 48%,
+    rgba(254, 240, 138, 0.45) 52%,
+    transparent 65%
+  );
+  transform: rotate(25deg) translateY(-120%);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.three-d-image-frame:hover .three-d-light-beam::after,
+.ed-card:hover .three-d-light-beam::after,
+.ed-shopping-card:hover .three-d-light-beam::after {
+  transform: rotate(25deg) translateY(120%);
+}
+
+/* 3D Ambient Rim Lighting Glow */
+.three-d-rim-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 25px rgba(250, 204, 21, 0.25), inset 0 0 15px rgba(244, 63, 94, 0.2);
+  pointer-events: none;
+  z-index: 11;
+  opacity: 0.75;
+  transition: opacity 0.4s ease;
+}
+
+.three-d-image-frame:hover .three-d-rim-glow,
+.ed-card:hover .three-d-rim-glow {
+  opacity: 1;
+  box-shadow: inset 0 0 35px rgba(250, 204, 21, 0.45), inset 0 0 20px rgba(244, 63, 94, 0.35);
+}
+
+/* ==========================================================================
+   ROYAL LUXURY MALL CINEMATIC ANIMATIONS & VISUAL DEPTH
+   ========================================================================== */
+
+@keyframes royal-cinematic-zoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.royal-zoom-effect {
+  animation: royal-cinematic-zoom 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes royal-gold-pulse {
+  0%, 100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); }
+  50% { box-shadow: 0 0 45px rgba(212, 175, 55, 0.45); }
+}
+
+.royal-gold-glow {
+  animation: royal-gold-pulse 4s ease-in-out infinite;
+}
+
+.royal-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08), 0 0 30px rgba(212, 175, 55, 0.12);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+}
+
+.royal-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  border-color: rgba(212, 175, 55, 0.65);
+  box-shadow: 0 32px 70px rgba(112, 26, 117, 0.16), 0 0 45px rgba(212, 175, 55, 0.3);
+}
+
+/* ==========================================================================
+   2026 MODERN EDITORIAL & ASYMMETRICAL LUXURY IMAGE COMPOSITION UTILITIES
+   ========================================================================== */
+
+/* Cinematic Horizontal Scroll Reel */
+.cinematic-horizontal-reel {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 24px;
+  padding: 16px 4px 28px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.45) rgba(250, 247, 242, 0.6);
+}
+
+.cinematic-horizontal-reel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cinematic-horizontal-reel::-webkit-scrollbar-track {
+  background: rgba(250, 247, 242, 0.8);
+  border-radius: 9999px;
+}
+
+.cinematic-horizontal-reel::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #d4af37, #f59e0b);
+  border-radius: 9999px;
+}
+
+.cinematic-snap-item {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Editorial Floating Vignette Overlap */
+.editorial-overlap-badge {
+  position: absolute;
+  z-index: 15;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(253, 252, 249, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12), 0 0 20px rgba(212, 175, 55, 0.18);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-overlap-badge:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 18px 40px rgba(112, 26, 117, 0.15), 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Modern Masonry Image Grid */
+.royal-masonry-container {
+  column-count: 3;
+  column-gap: 28px;
+}
+
+@media (max-width: 1024px) {
+  .royal-masonry-container {
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .royal-masonry-container {
+    column-count: 1;
+  }
+}
+
+.royal-masonry-item {
+  break-inside: avoid;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.07);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.royal-masonry-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.65);
+  box-shadow: 0 22px 55px rgba(112, 26, 117, 0.12);
+}
+
+/* Widescreen Cinematic 21:9 and 16:9 Ratios */
+.cinematic-aspect-widescreen {
+  aspect-ratio: 21 / 9;
+}
+
+@media (max-width: 768px) {
+  .cinematic-aspect-widescreen {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ==========================================================================
+   BRAND SHOWCASE FULL-WIDTH ASYMMETRICAL SPLIT COMPOSITION
+   ========================================================================== */
+.brand-split-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 56%) minmax(0, 44%);
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+}
+
+.brand-split-grid > * {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .brand-split-grid {
+    grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+  }
+}
+
+@media (max-width: 860px) {
+  .brand-split-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+
+
+

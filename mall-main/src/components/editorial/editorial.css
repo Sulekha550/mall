@@ -1,0 +1,1551 @@
+/* ==========================================================================
+   PREMIUM EDITORIAL DESIGN SYSTEM (LIGHTISH LUXURY THEME)
+   Inspired by International Luxury Malls & Phoenix Marketcity Mumbai
+   Colour Direction: Crystal Blue, Soft Lavender, Premium Violet, Muted Coral,
+                     Rose Pink, Fresh Turquoise, Champagne White, Subtle Peach
+   ========================================================================== */
+
+:root {
+  /* Palette: Luminous Modern Colorful Luxury */
+  --ed-pearl-white: #ffffff;
+  --ed-warm-ivory: #fdfbf7;
+  --ed-champagne-beige: #f5f0e8;
+  --ed-soft-lavender: #e8e2f4;
+  --ed-soft-lavender-glow: rgba(232, 226, 244, 0.6);
+  --ed-pastel-peach: #fceade;
+  --ed-pastel-peach-glow: rgba(252, 234, 222, 0.6);
+  --ed-subtle-coral: #fcdedc;
+  --ed-subtle-coral-glow: rgba(252, 222, 220, 0.55);
+
+  /* Legacy & Semantic Accents */
+  --ed-crystal-blue: #38bdf8;
+  --ed-crystal-blue-light: #7dd3fc;
+  --ed-crystal-blue-glow: rgba(56, 189, 248, 0.22);
+  --ed-crystal-blue-tint: rgba(56, 189, 248, 0.08);
+
+  --ed-lavender: #a855f7;
+  --ed-lavender-light: #c084fc;
+  --ed-violet: #8b5cf6;
+  --ed-violet-light: #a78bfa;
+  --ed-violet-glow: rgba(139, 92, 246, 0.2);
+  --ed-violet-tint: rgba(139, 92, 246, 0.06);
+
+  --ed-coral: #f97316;
+  --ed-coral-light: #fdba74;
+  --ed-coral-glow: rgba(249, 115, 22, 0.2);
+  --ed-coral-tint: rgba(249, 115, 22, 0.06);
+  --ed-peach: #fb923c;
+  --ed-peach-light: #fed7aa;
+  --ed-peach-tint: rgba(251, 146, 60, 0.08);
+
+  --ed-turquoise: #06b6d4;
+  --ed-turquoise-light: #67e8f9;
+  --ed-turquoise-glow: rgba(6, 182, 212, 0.2);
+  --ed-turquoise-tint: rgba(6, 182, 212, 0.06);
+
+  --ed-rose: #f43f5e;
+  --ed-rose-light: #fda4af;
+  --ed-rose-glow: rgba(244, 63, 94, 0.2);
+  --ed-rose-tint: rgba(244, 63, 94, 0.06);
+
+  /* Surfaces — Pearl Ivory & Champagne */
+  --ed-bg-base: #fdfbf7;
+  --ed-bg-surface: #ffffff;
+  --ed-bg-card: rgba(255, 255, 255, 0.96);
+  --ed-bg-card-hover: #ffffff;
+  --ed-border-subtle: rgba(212, 175, 55, 0.22);
+  --ed-royal-gold: #c5a059;
+  --ed-royal-burgundy: #581c87;
+  --ed-royal-wine: #701a75;
+
+  /* Typography Colors */
+  --ed-text-primary: #1c1317;
+  --ed-text-secondary: #4a343c;
+  --ed-text-muted: #785a64;
+
+  /* Editorial Spacing & Transitions */
+  --ed-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Master Editorial Wrapper in Lightish Theme */
+.editorial-root {
+  position: relative;
+  z-index: 25;
+  width: 100%;
+  background-color: var(--ed-bg-base);
+  color: var(--ed-text-primary);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Section Header Typography */
+.ed-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 20px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 18px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+.ed-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--ed-text-primary);
+}
+
+.ed-section-subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--ed-text-secondary);
+  max-width: 680px;
+  font-weight: 400;
+}
+
+/* Editorial Aspect Ratio Containers */
+.ed-ratio-16-9 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.ed-ratio-3-4 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.ed-ratio-4-5 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.ed-ratio-2-1 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.ed-ratio-2-3 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.ed-ratio-1-1 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+/* Editorial Image Standard */
+.ed-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s var(--ed-ease-out-expo), filter 0.8s var(--ed-ease-out-expo);
+  display: block;
+}
+
+.ed-card:hover .ed-img {
+  transform: scale(1.05);
+}
+
+/* Scrims for text over images */
+.ed-scrim-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(15, 23, 42, 0.85) 100%);
+  pointer-events: none;
+}
+
+.ed-scrim-full {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.7) 100%);
+  pointer-events: none;
+}
+
+/* Watermark in Lightish Theme */
+.ed-watermark {
+  position: absolute;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.05;
+  line-height: 0.8;
+  z-index: 0;
+}
+
+/* Editorial Lightish Glass Card */
+.ed-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--ed-bg-card);
+  border: 1px solid var(--ed-border-subtle);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06), 0 2px 10px rgba(15, 23, 42, 0.04);
+  transition: all 0.45s var(--ed-ease-out-expo);
+}
+
+.ed-card:hover {
+  transform: translateY(-16px) scale(1.025);
+  background: var(--ed-bg-card-hover);
+  box-shadow: 0 32px 70px rgba(15, 23, 42, 0.16), 0 8px 24px rgba(15, 23, 42, 0.08);
+  z-index: 30;
+}
+
+/* Editorial Floating Accent Pill */
+.ed-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Subtle Lightish Dividers */
+.ed-divider-glow {
+  width: 100%;
+  height: 1px;
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.1) 0%, transparent 75%);
+  margin: 0 auto;
+}
+
+/* Asymmetric Editorial Shopping Arrangements */
+.ed-shopping-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.ed-shopping-offset-1 {
+  margin-top: 0;
+}
+
+.ed-shopping-offset-2 {
+  margin-top: 60px;
+}
+
+.ed-shopping-offset-3 {
+  margin-top: 24px;
+}
+
+/* Dining Collage Asymmetric Grid */
+.ed-dining-mosaic {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr 0.8fr;
+  grid-template-rows: auto auto;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* 3-Column Editorial Event Cards */
+.ed-events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Asymmetric Lifestyle Floating Gallery */
+.ed-gallery-masonry {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* Lightish Sticky Subnav Bar */
+.ed-subnav {
+  position: sticky;
+  top: 68px;
+  z-index: 35;
+  width: 100%;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s ease;
+}
+
+.ed-subnav-items {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 4px 0;
+}
+.ed-subnav-items::-webkit-scrollbar {
+  display: none;
+}
+
+.ed-subnav-btn {
+  white-space: nowrap;
+  padding: 7px 18px;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ed-text-muted);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+
+.ed-subnav-btn:hover {
+  color: var(--ed-text-primary);
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+.ed-subnav-btn.active {
+  color: #ffffff;
+  background: #0f172a;
+  font-weight: 600;
+  border-color: #0f172a;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.25);
+}
+
+/* Responsive Editorial Adjustments */
+@media (max-width: 1100px) {
+  .ed-shopping-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .ed-shopping-offset-2 {
+    margin-top: 0;
+  }
+  .ed-shopping-offset-3 {
+    margin-top: 0;
+    grid-column: span 2;
+  }
+  .ed-dining-mosaic {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .ed-events-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ed-gallery-masonry {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ed-shopping-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .ed-shopping-offset-3 {
+    grid-column: auto;
+  }
+  .ed-dining-mosaic {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .ed-events-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .ed-gallery-masonry {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .ed-subnav {
+    top: 58px;
+    padding: 8px 16px;
+  }
+}
+
+/* ==========================================================================
+   OVERLAPPING & EDITORIAL ANIMATION SYSTEM
+   ========================================================================== */
+
+@keyframes edFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes edFloatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.4deg);
+  }
+}
+
+@keyframes edPulseSoft {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Circular Explore Button Overlapping Image Bottom */
+.ed-explore-btn {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1.5px solid rgba(15, 23, 42, 0.12);
+  color: #0f172a;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18), 0 3px 8px rgba(15, 23, 42, 0.08);
+  cursor: pointer;
+  transition: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 12;
+  text-decoration: none;
+}
+
+.ed-explore-btn:hover {
+  transform: scale(1.14) rotate(45deg);
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.28);
+}
+
+/* Brand Name / Small Label Floating Above Image */
+.ed-overlap-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  z-index: 5;
+}
+
+/* Layered Tilted Cards for Dining Collage */
+.ed-tilt-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+  will-change: transform;
+}
+
+.ed-tilt-left-1 {
+  transform: rotate(-1.5deg);
+}
+.ed-tilt-left-2 {
+  transform: rotate(-2.5deg);
+}
+.ed-tilt-right-1 {
+  transform: rotate(1.8deg);
+}
+.ed-tilt-right-2 {
+  transform: rotate(2.8deg);
+}
+
+.ed-tilt-card:hover {
+  transform: rotate(0deg) scale(1.025) translateY(-4px) !important;
+  z-index: 10 !important;
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.16), 0 6px 20px rgba(15, 23, 42, 0.08) !important;
+}
+
+@media (max-width: 768px) {
+  .ed-tilt-card {
+    transform: none !important;
+  }
+}
+
+/* Full-width Photographic Services Backdrop */
+.ed-services-backdrop {
+  position: relative;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+.ed-services-backdrop-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ed-services-backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(248, 250, 252, 0.90) 50%,
+    rgba(240, 249, 255, 0.88) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Floating Card for Services */
+.ed-service-float-card {
+  position: relative;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 32px 26px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.07), 0 2px 8px rgba(15, 23, 42, 0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ed-service-float-card:hover {
+  transform: translateY(-8px);
+  background: #ffffff;
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 24px 55px rgba(56, 189, 248, 0.18), 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+/* Social Media Floating Gallery */
+.ed-social-center {
+  position: relative;
+  z-index: 6;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(236, 72, 153, 0.22);
+  padding: 44px 36px;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(236, 72, 153, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.ed-social-float-img {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  border: 4px solid #ffffff;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ed-social-float-img:hover {
+  transform: scale(1.05) translateY(-6px);
+  box-shadow: 0 26px 55px rgba(236, 72, 153, 0.22);
+  z-index: 10;
+}
+
+/* ==========================================================================
+   EFFECT 2: FULL-SCREEN SECTION TAKEOVER / OVERLAY SCROLL
+   Each section occupies the entire viewport and smoothly covers the previous section
+   ========================================================================== */
+
+.ed-slide-deck-item {
+  position: sticky;
+  top: 0px;
+  min-height: 100vh;
+  width: 100%;
+  border-top-left-radius: 36px;
+  border-top-right-radius: 36px;
+  box-shadow: 0 -12px 35px rgba(15, 23, 42, 0.06), 0 -2px 8px rgba(15, 23, 42, 0.03);
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 1 !important;
+  filter: none !important;
+  transform-origin: center top;
+}
+
+/* First slide does not need top radius or shadow since it's the base floor */
+.ed-slide-deck-item:first-of-type {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .ed-slide-deck-item {
+    top: 0px;
+    min-height: 100vh;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    box-shadow: 0 -8px 25px rgba(15, 23, 42, 0.05);
+  }
+}
+
+/* ==========================================================================
+   EFFECT 1: CLICK-TO-LIFT IMAGE ANIMATION
+   Smooth GPU-accelerated lift with elevated depth and zero layout shift
+   ========================================================================== */
+
+.ed-card,
+.ed-lift-target {
+  cursor: pointer;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+  will-change: transform, box-shadow;
+}
+
+/* Lifted Active State */
+.ed-card.is-lifted,
+.ed-lift-target.is-lifted {
+  transform: translateY(-50px) scale(1.035) !important;
+  z-index: 65 !important;
+  box-shadow: 0 35px 85px rgba(15, 23, 42, 0.18), 0 10px 25px rgba(15, 23, 42, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.6) !important;
+}
+
+@media (max-width: 768px) {
+  .ed-card.is-lifted,
+  .ed-lift-target.is-lifted {
+    transform: translateY(-24px) scale(1.02) !important;
+  }
+}
+
+/* ==========================================================================
+   EVENTS HORIZONTAL CAROUSEL (3-CARD DESKTOP DISPLAY)
+   ========================================================================== */
+
+.ed-event-carousel-card {
+  flex: 0 0 calc((100% - 56px) / 3);
+  min-width: 320px;
+  max-width: 440px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1024px) {
+  .ed-event-carousel-card {
+    flex: 0 0 calc((100% - 24px) / 2);
+    min-width: 290px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ed-event-carousel-card {
+    flex: 0 0 86%;
+    min-width: 260px;
+  }
+}
+
+/* ==========================================================================
+   GLOBAL IMAGE HOVER LIFT & RESTORE SYSTEM (ALL SECTIONS EXCEPT HOME PAGE)
+   On hover: image card smoothly leaves its baseline and shifts upward (-16px).
+   On mouse leave: smoothly returns to its original baseline space.
+   ========================================================================== */
+
+.editorial-root .ed-card,
+.editorial-root .ed-tilt-card,
+.editorial-root .ed-service-float-card,
+.editorial-root .ed-social-float-img,
+.editorial-root .ed-event-carousel-card {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease !important;
+  will-change: transform, box-shadow;
+}
+
+.editorial-root .ed-card:not(.is-lifted):hover,
+.editorial-root .ed-service-float-card:hover,
+.editorial-root .ed-social-float-img:hover,
+.editorial-root .ed-event-carousel-card:not(.is-lifted):hover {
+  transform: translateY(-16px) scale(1.025) !important;
+  z-index: 35 !important;
+  box-shadow: 0 32px 70px rgba(15, 23, 42, 0.16), 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Dining tilted cards: straighten and shift upward on hover, restore tilt on leave */
+.editorial-root .ed-tilt-card:not(.is-lifted):hover {
+  transform: rotate(0deg) translateY(-16px) scale(1.025) !important;
+  z-index: 35 !important;
+  box-shadow: 0 32px 70px rgba(15, 23, 42, 0.16), 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Internal image zoom effect when hovering over the card, returns smoothly on leave */
+.editorial-root .ed-card:hover .ed-img,
+.editorial-root .ed-tilt-card:hover .ed-img,
+.editorial-root .ed-event-carousel-card:hover .ed-img,
+.editorial-root .ed-social-float-img:hover .ed-img {
+  transform: scale(1.06);
+}
+
+@media (max-width: 768px) {
+  .editorial-root .ed-card:not(.is-lifted):hover,
+  .editorial-root .ed-service-float-card:hover,
+  .editorial-root .ed-social-float-img:hover,
+  .editorial-root .ed-event-carousel-card:not(.is-lifted):hover,
+  .editorial-root .ed-tilt-card:not(.is-lifted):hover {
+    transform: translateY(-10px) scale(1.015) !important;
+  }
+}
+
+/* 3D Illumination & Specular Sheen Beam for All Editorial Cards */
+.editorial-root .ed-card,
+.editorial-root .ed-tilt-card,
+.editorial-root .ed-event-carousel-card,
+.editorial-root .ed-service-float-card {
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+.editorial-root .ed-card::after,
+.editorial-root .ed-tilt-card::after,
+.editorial-root .ed-event-carousel-card::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    65deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.28) 48%,
+    rgba(254, 240, 138, 0.42) 52%,
+    rgba(251, 113, 133, 0.25) 56%,
+    transparent 68%
+  );
+  transform: rotate(25deg) translateY(-120%);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 15;
+}
+
+.editorial-root .ed-card:hover::after,
+.editorial-root .ed-tilt-card:hover::after,
+.editorial-root .ed-event-carousel-card:hover::after {
+  transform: rotate(25deg) translateY(120%);
+}
+
+.editorial-root .ed-card:hover,
+.editorial-root .ed-tilt-card:hover,
+.editorial-root .ed-event-carousel-card:hover {
+  box-shadow: 0 32px 75px rgba(244, 63, 94, 0.2),
+              0 0 35px rgba(250, 204, 21, 0.28),
+              inset 0 0 25px rgba(255, 255, 255, 0.4) !important;
+  border-color: rgba(250, 204, 21, 0.55) !important;
+}
+
+/* ==========================================================================
+   FIXED-DIMENSION DINING GRID & INDEPENDENT CARD HOVER LIFT
+   Consistent size, height, width and initial position for all image cards.
+   Only the hovered card moves upward (-12px) with a gentle inner image zoom.
+   Other cards remain completely stationary.
+   ========================================================================== */
+
+.ed-dining-fixed-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: stretch;
+  padding-top: 96px; /* Headroom for the 80px-100px upward hover lift */
+  margin-bottom: 36px;
+}
+
+@media (max-width: 1100px) {
+  .ed-dining-fixed-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ed-dining-fixed-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 0;
+  }
+}
+
+.ed-dining-fixed-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.03);
+  overflow: hidden;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 300ms ease;
+  will-change: transform;
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ed-dining-fixed-card:hover {
+    transform: translateY(-90px) !important; /* Significant ~80px-100px upward lift */
+    z-index: 25 !important;
+    box-shadow: 0 35px 80px rgba(244, 63, 94, 0.18), 0 10px 25px rgba(245, 158, 11, 0.12) !important;
+    border-color: rgba(244, 63, 94, 0.55) !important;
+  }
+
+  .ed-dining-fixed-card:hover .ed-dining-fixed-img {
+    transform: scale(1.03); /* Very subtle image zoom */
+  }
+}
+
+.ed-dining-fixed-img-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #fff1f2;
+}
+
+.ed-dining-fixed-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   SHOPPING CARDS SIGNIFICANT HOVER LIFT (THE EDITORIAL EDIT)
+   Moves hovered card vertically upward by ~90px, keeps dimensions fixed,
+   subtle image zoom, elevated shadow, other cards stationary.
+   ========================================================================== */
+
+.ed-shopping-card {
+  position: relative;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(244, 63, 94, 0.12);
+  box-shadow: 0 12px 30px rgba(244, 63, 94, 0.06), 0 2px 8px rgba(245, 158, 11, 0.04);
+  overflow: hidden;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 300ms ease;
+  will-change: transform;
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ed-shopping-card:hover {
+    transform: translateY(-90px) !important;
+    z-index: 25 !important;
+    box-shadow: 0 35px 80px rgba(244, 63, 94, 0.18), 0 10px 25px rgba(245, 158, 11, 0.12) !important;
+    border-color: rgba(250, 204, 21, 0.65) !important;
+  }
+
+  .ed-shopping-card:hover .ed-img {
+    transform: scale(1.03) !important;
+  }
+}
+
+/* ==========================================================================
+   3D MULTI-LAYER DEPTH FOR EDITORIAL CARDS
+   Floating badges, explore buttons, and specular sheen
+   ========================================================================== */
+
+.ed-card,
+.ed-shopping-card,
+.ed-dining-fixed-card {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.ed-shopping-card .ed-overlap-badge,
+.ed-dining-fixed-card .ed-overlap-badge {
+  transform: translateZ(28px);
+  will-change: transform;
+}
+
+.ed-shopping-card .ed-explore-btn {
+  transform: translateZ(40px);
+  will-change: transform;
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   CREATIVE LUXURY DESIGN SYSTEM ENHANCEMENTS (ALL NON-HOMEPAGE SECTIONS)
+   International Luxury Mall Aesthetics: Pearl Ivory, Champagne Gold & Royal Purple
+   ========================================================================== */
+
+@keyframes royalGoldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0.4deg);
+  }
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+  }
+}
+
+@keyframes marqueeGlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Gold Gradient Shimmer Text */
+.ed-gold-gradient-text {
+  background: linear-gradient(135deg, #854d0e 0%, #d4af37 50%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: royalGoldShimmer 6s linear infinite;
+  display: inline-block;
+}
+
+/* Luxury Architectural Watermark */
+.ed-creative-watermark {
+  position: absolute;
+  font-family: var(--font-display, serif);
+  font-size: clamp(4rem, 12vw, 11rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.05);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  white-space: nowrap;
+  line-height: 0.8;
+  overflow: hidden;
+}
+
+/* Elegant Architectural Divider with Diamond Crest */
+.ed-luxury-crest-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 1440px;
+  margin: 40px auto 30px;
+  padding: 0 24px;
+}
+
+.ed-luxury-crest-divider::before,
+.ed-luxury-crest-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.35), transparent);
+}
+
+.ed-crest-symbol {
+  font-size: 0.82rem;
+  color: #d4af37;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Creative Status Pulse Dot */
+.ed-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+  animation: pulseGoldGlow 2.5s infinite;
+}
+
+/* Creative Architectural Feature Tag */
+.ed-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 4px 12px rgba(28, 19, 23, 0.04);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #44403c;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.ed-feature-pill:hover {
+  transform: translateY(-2px);
+  border-color: #d4af37;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.18);
+  color: #854d0e;
+  background: #ffffff;
+}
+
+/* Creative Quick Switcher Ribbon for Brands */
+.ed-brand-ribbon-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 0;
+  display: flex;
+  gap: 10px;
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.ed-brand-ribbon-container::-webkit-scrollbar {
+  display: none;
+}
+
+.ed-brand-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #57534e;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.ed-brand-chip:hover,
+.ed-brand-chip.active {
+  background: #ffffff;
+  border-color: #d4af37;
+  color: #854d0e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.2);
+}
+
+.ed-brand-chip.active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(255, 255, 255, 0.95));
+  border-color: #d4af37;
+  color: #854d0e;
+  font-weight: 800;
+}
+
+
+/* ==========================================================================
+   PAGE-SPECIFIC ORIGINAL ARCHITECTURAL CSS SUITE (ZERO REPETITIVE LAYOUTS)
+   ========================================================================== */
+
+/* 1. DISCOVER: OCULUS SPATIAL & DIAGRID BLUEPRINT */
+.ed-diagrid-blueprint {
+  background-image: 
+    linear-gradient(to right, rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.ed-oculus-portal {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.25), inset 0 0 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ed-oculus-portal:hover {
+  transform: scale(1.03) rotate(1deg);
+  border-color: #d4af37;
+  box-shadow: 0 0 70px rgba(212, 175, 55, 0.45);
+}
+
+.ed-cantilever-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: -15px 25px 50px rgba(28, 19, 23, 0.12);
+  transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
+  transition: all 0.5s ease;
+}
+
+.ed-cantilever-card:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(-8px);
+  box-shadow: 0 30px 70px rgba(212, 175, 55, 0.25);
+  border-color: #d4af37;
+}
+
+/* 2. SHOPPING: VOGUE RUNWAY TALL PORTRAIT & ASYMMETRIC SPREAD */
+.ed-runway-tall-card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 20px 50px rgba(28, 19, 23, 0.12);
+  aspect-ratio: 9 / 14;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ed-runway-tall-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 35px 80px rgba(212, 175, 55, 0.25);
+  border-color: #d4af37;
+}
+
+.ed-fashion-season-stamp {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  color: #d4af37;
+  padding: 4px 14px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 4px;
+  background: rgba(28, 19, 23, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 5;
+}
+
+/* 3. DINING: CIRCULAR SOMMELIER PLATES & DEGUSTATION PROGRESSION */
+.ed-degustation-round-frame {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 16px 45px rgba(28, 19, 23, 0.08);
+  transition: all 0.4s ease;
+}
+
+.ed-degustation-round-frame:hover {
+  transform: translateY(-6px);
+  border-color: #d4af37;
+  box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
+}
+
+.ed-wine-seal {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px dashed #d4af37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #854d0e;
+  background: rgba(253, 252, 249, 0.95);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.ed-course-step-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #854d0e;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* 4. ENTERTAINMENT: 2.39:1 ANAMORPHIC CURVED SILVER SCREEN & HUD */
+.ed-cinemascope-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2.39 / 1;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35), inset 0 0 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  transform: perspective(1200px) rotateX(2deg);
+  transition: all 0.5s ease;
+}
+
+.ed-cinemascope-screen:hover {
+  transform: perspective(1200px) rotateX(0deg) scale(1.01);
+  box-shadow: 0 40px 100px rgba(212, 175, 55, 0.3);
+  border-color: #d4af37;
+}
+
+.ed-hologram-hud {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, transparent 60%, rgba(14, 165, 233, 0.08) 100%),
+    linear-gradient(rgba(14, 165, 233, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 4px;
+  pointer-events: none;
+}
+
+/* 5. EXPERIENCES: SANCTUARY MONOLITHS & TRAVERTINE MARBLE */
+.ed-sanctuary-monolith {
+  position: relative;
+  border-radius: 36px 36px 20px 20px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 50px rgba(28, 19, 23, 0.06);
+  transition: all 0.4s ease;
+}
+
+.ed-sanctuary-monolith:hover {
+  transform: translateY(-8px);
+  border-color: #d4af37;
+  box-shadow: 0 30px 70px rgba(212, 175, 55, 0.18);
+}
+
+/* 6. EVENTS: BIENNALE EXHIBITION & MUSEUM PLACARDS */
+.ed-museum-frame {
+  position: relative;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 16px 40px rgba(28, 19, 23, 0.08);
+  transition: all 0.4s ease;
+}
+
+.ed-museum-frame:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 65px rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+}
+
+.ed-museum-placard {
+  padding: 16px 20px;
+  background: #faf7f2;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 0 0 12px 12px;
+}
+
+/* 7. GIFT CARD: 24K SOVEREIGN METALLIC CARD 3D */
+.ed-metal-gold-card-3d {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1.586 / 1;
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fef08a 0%, #d4af37 35%, #92400e 70%, #fef08a 100%);
+  box-shadow: 0 30px 80px rgba(212, 175, 55, 0.35), 0 10px 25px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.ed-metal-gold-card-3d:hover {
+  transform: perspective(1000px) rotateY(-8deg) rotateX(6deg) scale(1.02);
+  box-shadow: -20px 40px 100px rgba(212, 175, 55, 0.5);
+}
+
+.ed-metal-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.45) 50%, transparent 60%);
+  background-size: 200% 100%;
+  animation: royalGoldShimmer 5s infinite;
+  pointer-events: none;
+}
+
+
+/* ==========================================================================
+   ADVANCED LUXURY INTERACTIONS & OVERLAPPING STACKED SECTIONS
+   ========================================================================== */
+
+/* Overlapping Stacked Page Experience */
+.ed-stacked-section {
+  position: relative;
+  margin-top: -36px;
+  border-radius: 36px 36px 0 0;
+  background: #ffffff;
+  box-shadow: 0 -20px 60px rgba(28, 19, 23, 0.07);
+  z-index: 10;
+  border-top: 1px solid rgba(212, 175, 55, 0.22);
+  transition: transform 0.4s var(--ed-ease-out-expo), box-shadow 0.4s ease;
+}
+
+.ed-stacked-section-peach {
+  background: linear-gradient(180deg, #fffaf6 0%, #ffffff 100%);
+  border-top: 1px solid rgba(251, 146, 60, 0.2);
+}
+
+.ed-stacked-section-lavender {
+  background: linear-gradient(180deg, #faf7fe 0%, #ffffff 100%);
+  border-top: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.ed-stacked-section-coral {
+  background: linear-gradient(180deg, #fff7f7 0%, #ffffff 100%);
+  border-top: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+/* Smooth Image Expansion on Hover */
+.ed-hover-expand {
+  overflow: hidden;
+  border-radius: 20px;
+  transition: transform 0.45s var(--ed-ease-out-expo), box-shadow 0.45s ease;
+}
+
+.ed-hover-expand:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(28, 19, 23, 0.14);
+}
+
+.ed-hover-expand img {
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ed-hover-expand:hover img {
+  transform: scale(1.06);
+}
+
+/* Floating Asymmetric Image Staging */
+.ed-floating-stage {
+  position: relative;
+  width: 100%;
+}
+
+.ed-float-offset-1 {
+  transform: translateY(-24px);
+}
+
+.ed-float-offset-2 {
+  transform: translateY(24px);
+}
+
+/* Atmospheric Ambient Color Lighting Orbs */
+.ed-ambient-orb-lavender {
+  position: fixed;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(232, 226, 244, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ed-ambient-orb-peach {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(252, 234, 222, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ed-ambient-orb-coral {
+  position: fixed;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(252, 222, 220, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* ==========================================================================
+   CLEAN RECTANGULAR EDITORIAL FRAMES (NO CLIPPING, NO OVALS, NO BLOBS)
+   ========================================================================== */
+
+.ed-shape-cathedral-arch,
+.ed-shape-asymmetric-arch,
+.ed-shape-cameo-oval,
+.ed-shape-organic-blob-1,
+.ed-shape-organic-blob-2,
+.ed-shape-diagonal-cut,
+.ed-shape-tall-strip,
+.ed-shape-panoramic-capsule {
+  border-radius: 8px !important;
+  clip-path: none !important;
+  aspect-ratio: unset !important;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 16px 40px rgba(28, 19, 23, 0.08);
+  transition: transform 0.5s var(--ed-ease-out-expo), box-shadow 0.5s ease;
+}
+
+.ed-shape-cathedral-arch:hover,
+.ed-shape-asymmetric-arch:hover,
+.ed-shape-cameo-oval:hover,
+.ed-shape-organic-blob-1:hover,
+.ed-shape-organic-blob-2:hover,
+.ed-shape-diagonal-cut:hover,
+.ed-shape-tall-strip:hover,
+.ed-shape-panoramic-capsule:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 24px 60px rgba(212, 175, 55, 0.2);
+}
+
+/* 8. Gastronomic Porcelain Plate Silhouette */
+.ed-shape-sculptural-plate {
+  border-radius: 48% 52% 54% 46% / 42% 40% 60% 58%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(28, 19, 23, 0.08);
+  transition: all 0.5s ease;
+}
+
+.ed-shape-sculptural-plate:hover {
+  transform: translateY(-8px) rotate(1deg);
+  border-radius: 52% 48% 46% 54% / 58% 60% 40% 42%;
+  box-shadow: 0 30px 70px rgba(244, 63, 94, 0.18);
+}
+
+/* ==========================================================================
+   ASYMMETRICAL TRIPTYCH & OVERLAPPING CLUSTER LAYOUTS
+   ========================================================================== */
+
+/* Overlapping Triptych: 1 Large Anchor + 2 Floating Satellites */
+.ed-cluster-triptych {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .ed-cluster-triptych {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ed-cluster-satellite-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+}
+
+.ed-cluster-satellite-overlap {
+  margin-left: -40px;
+  z-index: 5;
+}
+
+@media (max-width: 900px) {
+  .ed-cluster-satellite-overlap {
+    margin-left: 0;
+  }
+}
+
+/* Asymmetric Duo Stagger (Offset by 50px vertically) */
+.ed-cluster-duo-stagger {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+@media (max-width: 860px) {
+  .ed-cluster-duo-stagger {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ed-stagger-offset-down {
+  margin-top: 50px;
+}
+
+@media (max-width: 860px) {
+  .ed-stagger-offset-down {
+    margin-top: 0;
+  }
+}
